@@ -1,0 +1,88 @@
+{
+  "dataset": "cora",
+  "nodes": 2708,
+  "directed_edges": 10556,
+  "micro_batches": 4,
+  "read_latency_seconds": 2.931e-08,
+  "write_latency_seconds": 5.088e-08,
+  "latency_scope": "Array pulse-time lower bound only; includes no sense-amp, decoder, interconnect, buffer, or control latency.",
+  "energy_model": {
+    "name": "NeuroSim-derived 1T1R array dynamic energy estimate",
+    "scope": "Crossbar line-capacitance switching for reads and cell plus line switching for writes. Excludes peripheral circuits, global buffer, interconnect, leakage, and idle energy.",
+    "provenance": {
+      "device_and_pulse_parameters": "NeuroSim V2.0 device/pulse assumptions represented in this reduced-scale model; the upstream source tree is not included.",
+      "technology_supply": "NeuroSim V2.0 technology supply assumption; the upstream source tree is not included.",
+      "read_array_equation": "First-order adaptation of the NeuroSim V2.0 conventional-parallel read array-capacitance equation.",
+      "write_array_equation": "First-order adaptation of NeuroSim V2.0 write-cell and line-energy equations, simplified to one pulse and a fully updated row."
+    },
+    "assumptions": {
+      "active_read_row_fraction": 0.5,
+      "average_cell_resistance_ohms": 550000.0,
+      "updated_cells_per_write_operation": 64,
+      "write_pulses_per_updated_cell": 1,
+      "columns_per_sense_amp": 8
+    },
+    "per_crossbar_read_operation_joules": 4.574412800000001e-13,
+    "per_row_write_operation_joules": 9.682811997090908e-11
+  },
+  "slimgnn_like_definition": "A static proxy that gives each stage the same replica count; this is not an exact SlimGNN implementation.",
+  "results": [
+    {
+      "scheme": "serial",
+      "crossbars_used": 16777216,
+      "makespan_seconds": 3.7872000000000003e-06,
+      "read_array_energy_joules": 2.2365219061760004e-07,
+      "write_array_energy_joules": 0.0015148685780077547,
+      "array_dynamic_energy_joules": 0.0015150922301983723,
+      "speedup_vs_serial": 1.0,
+      "replicas": {
+        "layer-0-CO-forward": 364722,
+        "layer-0-AG-forward": 5592405,
+        "layer-1-CO-forward": 8388608,
+        "layer-1-AG-forward": 5592405,
+        "layer-1-LC-backward": 8388608,
+        "layer-1-GC-backward": 5592405,
+        "layer-0-LC-backward": 364722,
+        "layer-0-GC-backward": 5592405
+      }
+    },
+    {
+      "scheme": "slimgnn_like_static_equal_replication",
+      "crossbars_used": 16777214,
+      "makespan_seconds": 5.56305e-06,
+      "read_array_energy_joules": 2.2365219061760004e-07,
+      "write_array_energy_joules": 0.0015148685780077547,
+      "array_dynamic_energy_joules": 0.0015150922301983723,
+      "speedup_vs_serial": 0.6807776309758137,
+      "replicas": {
+        "layer-0-CO-forward": 155345,
+        "layer-0-AG-forward": 155345,
+        "layer-1-CO-forward": 155345,
+        "layer-1-AG-forward": 155345,
+        "layer-1-LC-backward": 155345,
+        "layer-1-GC-backward": 155345,
+        "layer-0-LC-backward": 155344,
+        "layer-0-GC-backward": 155345
+      }
+    },
+    {
+      "scheme": "gopim_greedy_bottleneck",
+      "crossbars_used": 16777216,
+      "makespan_seconds": 6.0867e-06,
+      "read_array_energy_joules": 2.2365219061760004e-07,
+      "write_array_energy_joules": 0.0015148685780077547,
+      "array_dynamic_energy_joules": 0.0015150922301983723,
+      "speedup_vs_serial": 0.6222090788111786,
+      "replicas": {
+        "layer-0-CO-forward": 3224,
+        "layer-0-AG-forward": 9,
+        "layer-1-CO-forward": 16,
+        "layer-1-AG-forward": 2,
+        "layer-1-LC-backward": 1774,
+        "layer-1-GC-backward": 109,
+        "layer-0-LC-backward": 361348,
+        "layer-0-GC-backward": 988
+      }
+    }
+  ]
+}

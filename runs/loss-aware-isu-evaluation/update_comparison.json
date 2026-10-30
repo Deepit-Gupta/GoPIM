@@ -1,0 +1,410 @@
+[
+  {
+    "dataset": "cora",
+    "epochs": 50,
+    "seed": 42,
+    "model": {
+      "layers": 2,
+      "learning_rate": 0.01,
+      "dropout": 0.5,
+      "input": 1433,
+      "hidden": 64,
+      "output": 7
+    },
+    "average_degree": 3.8980797636632203,
+    "adaptive_update_fraction": 0.8,
+    "selected_vertices": 2167,
+    "isu": {
+      "run_config": {
+        "dataset": "cora",
+        "seed": 42,
+        "epochs": 50,
+        "model": {
+          "layers": 2,
+          "learning_rate": 0.01,
+          "dropout": 0.5,
+          "input": 1433,
+          "hidden": 64,
+          "output": 7
+        },
+        "isu_enabled": true,
+        "update_policy": "degree",
+        "loss_aware_loss_weight": 0.75,
+        "average_degree": 3.8980797636632203,
+        "sparse_average_degree_threshold": 8.0,
+        "selected_update_fraction": 0.8,
+        "selected_vertices": 2167,
+        "low_degree_update_period": 20,
+        "adaptive_policy": {
+          "sparse_graph_update_fraction": 0.8,
+          "dense_graph_update_fraction": 0.5
+        }
+      },
+      "final_validation_metrics": {
+        "acc": 0.7820000052452087
+      },
+      "final_test_metrics": {
+        "acc": 0.8040000200271606
+      },
+      "total_vertex_update_count": 109432,
+      "full_update_count": 135400,
+      "final_epoch_vertex_update_count": 2167,
+      "final_epoch_update_fraction": 0.8002215657311669
+    },
+    "loss_aware_isu": {
+      "run_config": {
+        "dataset": "cora",
+        "seed": 42,
+        "epochs": 50,
+        "model": {
+          "layers": 2,
+          "learning_rate": 0.01,
+          "dropout": 0.5,
+          "input": 1433,
+          "hidden": 64,
+          "output": 7
+        },
+        "isu_enabled": true,
+        "update_policy": "loss-aware",
+        "loss_aware_loss_weight": 0.75,
+        "average_degree": 3.8980797636632203,
+        "sparse_average_degree_threshold": 8.0,
+        "selected_update_fraction": 0.8,
+        "selected_vertices": 2167,
+        "low_degree_update_period": 20,
+        "adaptive_policy": {
+          "sparse_graph_update_fraction": 0.8,
+          "dense_graph_update_fraction": 0.5
+        }
+      },
+      "final_validation_metrics": {
+        "acc": 0.7799999713897705
+      },
+      "final_test_metrics": {
+        "acc": 0.7860000133514404
+      },
+      "total_vertex_update_count": 109432,
+      "full_update_count": 135400,
+      "final_epoch_vertex_update_count": 2167,
+      "final_epoch_update_fraction": 0.8002215657311669
+    },
+    "full_update": {
+      "run_config": {
+        "dataset": "cora",
+        "seed": 42,
+        "epochs": 50,
+        "model": {
+          "layers": 2,
+          "learning_rate": 0.01,
+          "dropout": 0.5,
+          "input": 1433,
+          "hidden": 64,
+          "output": 7
+        },
+        "isu_enabled": false,
+        "update_policy": "full-update",
+        "loss_aware_loss_weight": 0.75,
+        "average_degree": 3.8980797636632203,
+        "sparse_average_degree_threshold": 8.0,
+        "selected_update_fraction": 0.8,
+        "selected_vertices": 2167,
+        "low_degree_update_period": 20,
+        "adaptive_policy": {
+          "sparse_graph_update_fraction": 0.8,
+          "dense_graph_update_fraction": 0.5
+        }
+      },
+      "final_validation_metrics": {
+        "acc": 0.7820000052452087
+      },
+      "final_test_metrics": {
+        "acc": 0.7900000214576721
+      },
+      "total_vertex_update_count": 135400,
+      "full_update_count": 135400,
+      "final_epoch_vertex_update_count": 2708,
+      "final_epoch_update_fraction": 1.0
+    },
+    "isu_minus_full_update_validation": {
+      "acc": 0.0
+    },
+    "isu_minus_full_update_test": {
+      "acc": 0.013999998569488525
+    },
+    "loss_aware_isu_minus_full_update_validation": {
+      "acc": -0.0020000338554382324
+    },
+    "loss_aware_isu_minus_degree_isu_validation": {
+      "acc": -0.0020000338554382324
+    },
+    "loss_aware_isu_minus_full_update_test": {
+      "acc": -0.0040000081062316895
+    },
+    "loss_aware_isu_minus_degree_isu_test": {
+      "acc": -0.018000006675720215
+    },
+    "pipeline_comparison": [
+      {
+        "scheme": "serial",
+        "crossbars_used": 16777216,
+        "makespan_seconds": 3.7872000000000003e-06,
+        "read_array_energy_joules": 2.2365219061760004e-07,
+        "write_array_energy_joules": 0.0015148685780077547,
+        "array_dynamic_energy_joules": 0.0015150922301983723,
+        "speedup_vs_serial": 1.0,
+        "replicas": {
+          "layer-0-CO-forward": 364722,
+          "layer-0-AG-forward": 5592405,
+          "layer-1-CO-forward": 8388608,
+          "layer-1-AG-forward": 5592405,
+          "layer-1-LC-backward": 8388608,
+          "layer-1-GC-backward": 5592405,
+          "layer-0-LC-backward": 364722,
+          "layer-0-GC-backward": 5592405
+        }
+      },
+      {
+        "scheme": "slimgnn_like_static_equal_replication",
+        "crossbars_used": 16777214,
+        "makespan_seconds": 5.56305e-06,
+        "read_array_energy_joules": 2.2365219061760004e-07,
+        "write_array_energy_joules": 0.0015148685780077547,
+        "array_dynamic_energy_joules": 0.0015150922301983723,
+        "speedup_vs_serial": 0.6807776309758137,
+        "replicas": {
+          "layer-0-CO-forward": 155345,
+          "layer-0-AG-forward": 155345,
+          "layer-1-CO-forward": 155345,
+          "layer-1-AG-forward": 155345,
+          "layer-1-LC-backward": 155345,
+          "layer-1-GC-backward": 155345,
+          "layer-0-LC-backward": 155344,
+          "layer-0-GC-backward": 155345
+        }
+      },
+      {
+        "scheme": "gopim_greedy_bottleneck",
+        "crossbars_used": 16777216,
+        "makespan_seconds": 6.0867e-06,
+        "read_array_energy_joules": 2.2365219061760004e-07,
+        "write_array_energy_joules": 0.0015148685780077547,
+        "array_dynamic_energy_joules": 0.0015150922301983723,
+        "speedup_vs_serial": 0.6222090788111786,
+        "replicas": {
+          "layer-0-CO-forward": 3224,
+          "layer-0-AG-forward": 9,
+          "layer-1-CO-forward": 16,
+          "layer-1-AG-forward": 2,
+          "layer-1-LC-backward": 1774,
+          "layer-1-GC-backward": 109,
+          "layer-0-LC-backward": 361348,
+          "layer-0-GC-backward": 988
+        }
+      }
+    ]
+  },
+  {
+    "dataset": "citeseer",
+    "epochs": 50,
+    "seed": 42,
+    "model": {
+      "layers": 2,
+      "learning_rate": 0.01,
+      "dropout": 0.5,
+      "input": 3703,
+      "hidden": 64,
+      "output": 6
+    },
+    "average_degree": 2.7363991584009617,
+    "adaptive_update_fraction": 0.8,
+    "selected_vertices": 2662,
+    "isu": {
+      "run_config": {
+        "dataset": "citeseer",
+        "seed": 42,
+        "epochs": 50,
+        "model": {
+          "layers": 2,
+          "learning_rate": 0.01,
+          "dropout": 0.5,
+          "input": 3703,
+          "hidden": 64,
+          "output": 6
+        },
+        "isu_enabled": true,
+        "update_policy": "degree",
+        "loss_aware_loss_weight": 0.75,
+        "average_degree": 2.7363991584009617,
+        "sparse_average_degree_threshold": 8.0,
+        "selected_update_fraction": 0.8,
+        "selected_vertices": 2662,
+        "low_degree_update_period": 20,
+        "adaptive_policy": {
+          "sparse_graph_update_fraction": 0.8,
+          "dense_graph_update_fraction": 0.5
+        }
+      },
+      "final_validation_metrics": {
+        "acc": 0.6399999856948853
+      },
+      "final_test_metrics": {
+        "acc": 0.6420000195503235
+      },
+      "total_vertex_update_count": 134430,
+      "full_update_count": 166350,
+      "final_epoch_vertex_update_count": 2662,
+      "final_epoch_update_fraction": 0.8001202284340246
+    },
+    "loss_aware_isu": {
+      "run_config": {
+        "dataset": "citeseer",
+        "seed": 42,
+        "epochs": 50,
+        "model": {
+          "layers": 2,
+          "learning_rate": 0.01,
+          "dropout": 0.5,
+          "input": 3703,
+          "hidden": 64,
+          "output": 6
+        },
+        "isu_enabled": true,
+        "update_policy": "loss-aware",
+        "loss_aware_loss_weight": 0.75,
+        "average_degree": 2.7363991584009617,
+        "sparse_average_degree_threshold": 8.0,
+        "selected_update_fraction": 0.8,
+        "selected_vertices": 2662,
+        "low_degree_update_period": 20,
+        "adaptive_policy": {
+          "sparse_graph_update_fraction": 0.8,
+          "dense_graph_update_fraction": 0.5
+        }
+      },
+      "final_validation_metrics": {
+        "acc": 0.6439999938011169
+      },
+      "final_test_metrics": {
+        "acc": 0.6439999938011169
+      },
+      "total_vertex_update_count": 134430,
+      "full_update_count": 166350,
+      "final_epoch_vertex_update_count": 2662,
+      "final_epoch_update_fraction": 0.8001202284340246
+    },
+    "full_update": {
+      "run_config": {
+        "dataset": "citeseer",
+        "seed": 42,
+        "epochs": 50,
+        "model": {
+          "layers": 2,
+          "learning_rate": 0.01,
+          "dropout": 0.5,
+          "input": 3703,
+          "hidden": 64,
+          "output": 6
+        },
+        "isu_enabled": false,
+        "update_policy": "full-update",
+        "loss_aware_loss_weight": 0.75,
+        "average_degree": 2.7363991584009617,
+        "sparse_average_degree_threshold": 8.0,
+        "selected_update_fraction": 0.8,
+        "selected_vertices": 2662,
+        "low_degree_update_period": 20,
+        "adaptive_policy": {
+          "sparse_graph_update_fraction": 0.8,
+          "dense_graph_update_fraction": 0.5
+        }
+      },
+      "final_validation_metrics": {
+        "acc": 0.6380000114440918
+      },
+      "final_test_metrics": {
+        "acc": 0.6430000066757202
+      },
+      "total_vertex_update_count": 166350,
+      "full_update_count": 166350,
+      "final_epoch_vertex_update_count": 3327,
+      "final_epoch_update_fraction": 1.0
+    },
+    "isu_minus_full_update_validation": {
+      "acc": 0.001999974250793457
+    },
+    "isu_minus_full_update_test": {
+      "acc": -0.0009999871253967285
+    },
+    "loss_aware_isu_minus_full_update_validation": {
+      "acc": 0.0059999823570251465
+    },
+    "loss_aware_isu_minus_degree_isu_validation": {
+      "acc": 0.0040000081062316895
+    },
+    "loss_aware_isu_minus_full_update_test": {
+      "acc": 0.0009999871253967285
+    },
+    "loss_aware_isu_minus_degree_isu_test": {
+      "acc": 0.001999974250793457
+    },
+    "pipeline_comparison": [
+      {
+        "scheme": "serial",
+        "crossbars_used": 16777216,
+        "makespan_seconds": 1.9285680000000003e-05,
+        "read_array_energy_joules": 7.061722313523201e-07,
+        "write_array_energy_joules": 0.004783232051379412,
+        "array_dynamic_energy_joules": 0.004783938223610764,
+        "speedup_vs_serial": 1.0,
+        "replicas": {
+          "layer-0-CO-forward": 144631,
+          "layer-0-AG-forward": 5592405,
+          "layer-1-CO-forward": 8388608,
+          "layer-1-AG-forward": 5592405,
+          "layer-1-LC-backward": 8388608,
+          "layer-1-GC-backward": 5592405,
+          "layer-0-LC-backward": 144631,
+          "layer-0-GC-backward": 5592405
+        }
+      },
+      {
+        "scheme": "slimgnn_like_static_equal_replication",
+        "crossbars_used": 16777216,
+        "makespan_seconds": 3.801231e-05,
+        "read_array_energy_joules": 7.061722313523201e-07,
+        "write_array_energy_joules": 0.004783232051379412,
+        "array_dynamic_energy_joules": 0.004783938223610764,
+        "speedup_vs_serial": 0.5073535388930587,
+        "replicas": {
+          "layer-0-CO-forward": 67650,
+          "layer-0-AG-forward": 67651,
+          "layer-1-CO-forward": 67651,
+          "layer-1-AG-forward": 67651,
+          "layer-1-LC-backward": 67651,
+          "layer-1-GC-backward": 67651,
+          "layer-0-LC-backward": 67650,
+          "layer-0-GC-backward": 67651
+        }
+      },
+      {
+        "scheme": "gopim_greedy_bottleneck",
+        "crossbars_used": 16777215,
+        "makespan_seconds": 4.311581999999999e-05,
+        "read_array_energy_joules": 7.061722313523201e-07,
+        "write_array_energy_joules": 0.004783232051379412,
+        "array_dynamic_energy_joules": 0.004783938223610764,
+        "speedup_vs_serial": 0.4472993903397873,
+        "replicas": {
+          "layer-0-CO-forward": 1279,
+          "layer-0-AG-forward": 1,
+          "layer-1-CO-forward": 3,
+          "layer-1-AG-forward": 1,
+          "layer-1-LC-backward": 234,
+          "layer-1-GC-backward": 10,
+          "layer-0-LC-backward": 143345,
+          "layer-0-GC-backward": 107
+        }
+      }
+    ]
+  }
+]
